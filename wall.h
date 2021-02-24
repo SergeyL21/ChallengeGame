@@ -11,17 +11,16 @@
 
 #include "game_object.h"
 
+// ---------------------------------------------------------------------------
+// класс описания игрового объекта типа стена
 class Wall : public GameObject {
 public:
   Wall();
   virtual ~Wall() = default;
 
-  char graphSymbol() const;
-  void setGraphSymbol(char symbol);
+  // переопределение методов базового класса
+  virtual const Wall *toWall() const override;
+  virtual Wall *toWall() override;
 
-  virtual const class Wall *toWall() const override;
-  virtual class Wall *toWall() override;
-
-protected:
-  char m_graphSymbol {0x0};      // ������, �� �������� �������������� �����
+private:
 };
