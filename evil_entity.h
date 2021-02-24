@@ -11,13 +11,17 @@
 
 #include "game_object.h"
 
+// ---------------------------------------------------------------------------
+// класс описания игрового объекта типа противник
 class EvilEntity : public GameObject {
 public:
   EvilEntity();
   virtual ~EvilEntity() = default;
 
-  virtual const class EvilEntity *toEvilEntity() const;
-  virtual class EvilEntity *toEvilEntity();
+  // переопределение методов базового класса
+  virtual const EvilEntity *toEvilEntity() const override;
+  virtual EvilEntity *toEvilEntity() override;
 
-protected:
+private:
+
 };

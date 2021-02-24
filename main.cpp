@@ -7,12 +7,15 @@
  * Author: Sergey Lola
  */
 
-#include <iostream>
+#include "game_engine.h"
 
 using namespace std;
 
+// ---------------------------------------------------------------------------
 int main()
 {
-  cout << "Hello World!" << endl;
+  GameEngine engine;
+  engine.initConsole(60, 40);
+  engine.start();
   return 0;
 }

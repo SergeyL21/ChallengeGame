@@ -11,17 +11,25 @@
 
 #include "game_object.h"
 
+// ---------------------------------------------------------------------------
+// класс описания игрового объекта типа игрок
 class Player : public GameObject {
 public:
   Player();
   virtual ~Player() = default;
 
-  virtual const class Player *toPlayer() const override;
-  virtual class Player *toPlayer() override;
+  // переопределение методов базового класса
+  virtual const Player *toPlayer() const override;
+  virtual Player *toPlayer() override;
 
-  int driftSpeed() const;
-  void setDriftSpeed(int value);
+  // метод получения текущей скорости смещения игрока
+  inline float driftSpeed() const { return m_driftSpeed; }
+  // метод изменения скорости смещения игрока
+  inline void setDriftSpeed(float value) { m_driftSpeed = value; }
+  // метод определения направления смещения игрока по заданной границе
+  // (условная середина окна консоли)
+  SHORT driftDirection(SHORT border) const;
 
 protected:
-  int m_driftSpeed;      // ������� �������� �������� ������ �����/������
+  float m_driftSpeed {0};     // текущая скорость смещения игрока влево/вправо
 };
