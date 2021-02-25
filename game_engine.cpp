@@ -52,17 +52,17 @@ const float EVIL_ENTITY_SPAWN_DELAY {333.f};
 const int EVIL_ENTITY_DOUBLE_SPLASH {10};
 
 // символ горизонтальной границы игрового поля
-const char BC_HORIZONTAL_LINE = 0xCD;
+const BYTE BC_HORIZONTAL_LINE = 0xCD;
 // символ вертикальной границы игрового поля
-const char BC_VERTICAL_LINE = 0xBA;
+const BYTE BC_VERTICAL_LINE = 0xBA;
 // символ основания игрового поля
-const char BC_BASE = 0xB1;
+const BYTE BC_BASE = 0xB1;
 // символ левой верхней границы игрового поля
-const char BC_TOP_LEFT = 0xC9;
+const BYTE BC_TOP_LEFT = 0xC9;
 // символ правой верхней границы игрового поля
-const char BC_TOP_RIGHT = 0xBB;
+const BYTE BC_TOP_RIGHT = 0xBB;
 // символ игровых объектов
-const char GH_BLOCK = 0xDB;
+const BYTE GH_BLOCK = 0xDB;
 
 // ---------------------------------------------------------------------------
 bool GameEngine::initConsole(SHORT width, SHORT height)
@@ -187,14 +187,14 @@ void GameEngine::start()
 
   startMenu();
 
-  const SHORT fieldCenterBorder = lroundf(float(m_fieldWidth) / 2 - 1);
+  const SHORT fieldCenterBorder = SHORT(lroundf(float(m_fieldWidth) / 2 - 1));
   COORD nextPlayerPos { m_player->pos() };
   DWORD tickPoint1{GetTickCount()}, tickPoint2{GetTickCount()};
   float deltaTime;
   float spawnDelay {0.f};
   SHORT playerDriftDirection {0};
   bool avoidPlayerDrift;
-  int startSeed = time(0);
+  int startSeed {int(time(0))};
   do {
     avoidPlayerDrift = false;
     tickPoint1 = tickPoint2;
