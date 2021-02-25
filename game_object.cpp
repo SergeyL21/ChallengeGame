@@ -34,14 +34,14 @@ void GameObject::setSize(const COORD &size)
 SHORT GameObject::stepPos0X(float speed, float dt)
 {
   m_rx += dt * speed;
-  return lroundf(m_rx);
+  return SHORT(lroundf(m_rx));
 }
 
 // ---------------------------------------------------------------------------
 SHORT GameObject::stepPos0Y(float speed, float dt)
 {
   m_ry += dt * speed;
-  return lroundf(m_ry);
+  return SHORT(lroundf(m_ry));
 }
 
 // ---------------------------------------------------------------------------
